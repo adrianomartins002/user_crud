@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { BackButton, Button, Container, Input, LabelMessageError, Title } from '../../atoms';
-import { useLocation } from "react-router-dom";
 
 export default function Birth(){
     const [birth, setBirth] = useState();
@@ -34,7 +33,12 @@ export default function Birth(){
             <Title>Insira sua data de nascimento</Title>
             <Input
             type={"date"}
-            onChange={(element)=>setBirth(element.target.value)}
+            onChange={(element)=>{
+                setBirth(element.target.value)
+                if(element.target.value === ""){
+                    window.localStorage.removeItem("birth")
+                }
+            }}
             value={birth}
             ></Input>
              {messageError !== "" ?

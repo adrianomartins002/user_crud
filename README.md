@@ -1,7 +1,7 @@
 # user-crud
 Projeto para criação de um app web onde será possível fazer o cadastro de um usuario com alguns dados básicos
 
-![Tela1](https:teste)
+![Tela1](https://imgur.com/bgSSWIz)
 
 # Iniciando
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em 
@@ -16,12 +16,13 @@ Para execução e desenvolvimento do projeto é necessário, ou que tenha instal
 
 ## Desenvolvido com
  - JavaScript
- - [ReactJs](https://facebook.github.io/react-native/)
- - [facebook-proptypes](https://github.com/facebook/prop-types)
+ - [ReactJs](https://pt-br.reactjs.org/)
+ 
 
 ## Execução o projeto em desenvolvimento
- - Para executar o aplicativo pela avd do android sdk basta baixar os pacotes do package.json 
+ - Para executar o projeto, basta baixar os pacotes do package.json 
  utilizando o comando ``` yarn ou npm install ``` e logo após o download terminar, utilizar o comando ``` yarn start ```.
+
 
 ## Executando o projeto com docker
  - Para executar o projeto em um container docker, basta executar os seguites comandos:
@@ -30,37 +31,23 @@ Para execução e desenvolvimento do projeto é necessário, ou que tenha instal
  - Para acessar o projeto, basta acessar a url localhost:3001
 
 ## Api utilizada para testes do backend
- - [Open Weather](https://https://www.mockapi.io/Criação/)
+ - [MockApi](https://https://www.mockapi.io/Criação/)
 
 
 ## Arquitetura do projeto	
 
 	
-	shared
-		-stacks
-			-carregamento
-			-principal
-			-permissoes
+	src
 		-common
 			-apis
-			-assets
 			-services
 		-components
 			-atoms
 			-molecules
 			-organisms
+			-pages
 	
 
-### Stacks
-	
-	- Parte do projeto onde conterá os fluxos para transição entre as telas
-	- Fiz uso do react-navigation para a transição, ele já possui um conceito de container, switch 
-	e stack de navegação, a parte de stack foi meio que pensada nisso
-	A stack de carregamento por exemplo, monta a page de carregamento, e permissão de localização, 
-	para caso o usuário não dê permissão realizar a transição entre elas
-	A stack principal, como o próprio nome já diz, contem a tela principal onde mostrará as 
-	informações de clima
-	
 
 ### Common
 	Coisas comuns para o projeto, entre elas: apis, assets e services
@@ -71,16 +58,11 @@ Para execução e desenvolvimento do projeto é necessário, ou que tenha instal
 
 ### Atomic design
  - Para design e organização do projeto utilizei parte dos conceitos do Design atomico para aplicacoes react, onde cada componente é criado e reutilizado
+ - Não vi necessidade da criação dos diretórios de molecules e organisms, pois somente com os atomos já foi possível a criação da maior parte dos componentes das pages
 
 ## Autores
 - Adriano Martins de Oliveira Sousa.
 
 ## Imagens e SVG (Autores)
-    Algumas das imagens e svg's grátis que utilizei vieram do site [Flaticon](https://www.flaticon.com/)
-- Autores :
-
-    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-	<div>Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
+- Algumas das imagens e svg's grátis que utilizei vieram do pacote react:
+- [ReactIcons] (https://react-icons.github.io/react-icons/)

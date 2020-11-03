@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BackButton, Button, Container, Input, LabelMessageError, Title } from '../../atoms';
 
 export default function Mother(){
@@ -33,7 +33,12 @@ export default function Mother(){
             </Link>
             <Title>Insira o nome da sua mãe completo</Title>
             <Input
-            onChange={(element)=>setMothersName(element.target.value)}
+            onChange={(element)=>{
+                setMothersName(element.target.value)
+                if(element.target.value === ""){
+                    window.localStorage.removeItem("mother")
+                }
+            }}
             value={mothersName}
             ></Input>
             {messageError !== "" ?

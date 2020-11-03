@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BackButton, Button, CheckBox, Container, LabelMessageError, Title } from '../../atoms';
 import { MockUserService } from '../../../common/services/user';
 
@@ -12,7 +12,6 @@ const arrayPerguntas = [
 ]
 
 export default function Cep() {
-    const { data } = useLocation();
     const [ceps, setCeps] = useState([]);
     const [messageError, setMessageError] = useState("");
     const [sucess, setSucess] = useState(false);
