@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# user-crud
+Projeto para criação de um app web onde será possível fazer o cadastro de um usuario com alguns dados básicos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Tela1](https:teste)
 
-## Available Scripts
+# Iniciando
+Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em 
+um sistema ativo.
 
-In the project directory, you can run:
+## Pré-requisitos:
+Para execução e desenvolvimento do projeto é necessário, ou que tenha instalado:
+- nodejs
+- react-native
+- yarn ou npm
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Desenvolvido com
+ - JavaScript
+ - [ReactJs](https://facebook.github.io/react-native/)
+ - [facebook-proptypes](https://github.com/facebook/prop-types)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Execução o projeto em desenvolvimento
+ - Para executar o aplicativo pela avd do android sdk basta baixar os pacotes do package.json 
+ utilizando o comando ``` yarn ou npm install ``` e logo após o download terminar, utilizar o comando ``` yarn start ```.
 
-### `yarn test`
+## Executando o projeto com docker
+ - Para executar o projeto em um container docker, basta executar os seguites comandos:
+ ``` docker build -t cruduser:dev .```, após executar e ter o feedback do comando, deve ser subida a imagem com o próximo comando: 
+ ``` docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm cruduser:dev ```
+ - Para acessar o projeto, basta acessar a url localhost:3001
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Api utilizada para testes do backend
+ - [Open Weather](https://https://www.mockapi.io/Criação/)
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Arquitetura do projeto	
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+	
+	shared
+		-stacks
+			-carregamento
+			-principal
+			-permissoes
+		-common
+			-apis
+			-assets
+			-services
+		-components
+			-atoms
+			-molecules
+			-organisms
+	
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Stacks
+	
+	- Parte do projeto onde conterá os fluxos para transição entre as telas
+	- Fiz uso do react-navigation para a transição, ele já possui um conceito de container, switch 
+	e stack de navegação, a parte de stack foi meio que pensada nisso
+	A stack de carregamento por exemplo, monta a page de carregamento, e permissão de localização, 
+	para caso o usuário não dê permissão realizar a transição entre elas
+	A stack principal, como o próprio nome já diz, contem a tela principal onde mostrará as 
+	informações de clima
+	
 
-### `yarn eject`
+### Common
+	Coisas comuns para o projeto, entre elas: apis, assets e services
+	Nesse caso foi levado em conta que services, seria a parte do projeto responsável por parte 
+	da lógica de requisição das informações, elas são montadas na parte de apis
+	Para as requests, utilizei o axios
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Atomic design
+ - Para design e organização do projeto utilizei parte dos conceitos do Design atomico para aplicacoes react, onde cada componente é criado e reutilizado
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Autores
+- Adriano Martins de Oliveira Sousa.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Imagens e SVG (Autores)
+    Algumas das imagens e svg's grátis que utilizei vieram do site [Flaticon](https://www.flaticon.com/)
+- Autores :
 
-## Learn More
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+	<div>Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

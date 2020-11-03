@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Birth from "./components/pages/birth";
+import Cep from "./components/pages/cep";
+import Mother from "./components/pages/mother";
+import Name from "./components/pages/name";
+import Rg from "./components/pages/rg";
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router >
+
+      {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+
+      <Switch>
+        <Route exact path="/">
+          <Rg></Rg>
+        </Route>
+        <Route exact path="/name/">
+          <Name></Name>
+        </Route>
+        <Route exact path="/birth">
+          <Birth></Birth>
+        </Route>
+        <Route exact path="/mother">
+          <Mother></Mother>
+        </Route>
+        <Route exact path="/cep">
+          <Cep></Cep>
+        </Route>
+      </Switch>
+
+    </Router>
   );
 }
 
-export default App;
