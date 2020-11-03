@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { BackButton, Button, Container, Input, LabelMessageError, Title } from '../../atoms';
@@ -7,8 +7,15 @@ import { useLocation } from "react-router-dom";
 
 export default function Birth(){
     const [birth, setBirth] = useState();
-    const {data} = useLocation();
+    
     const [messageError, setMessageError] = useState("");
+
+    useEffect(()=>{
+        let birthLocal = window.localStorage.getItem("birth")
+        if(birthLocal && birthLocal !== "")
+            setBirth(birthLocal)
+    },[])
+
 
     function checkAndSaveData(e) {
         if (!birth || birth === "") {
@@ -26,7 +33,9 @@ export default function Birth(){
             </Link>
             <Title>Insira sua data de nascimento</Title>
             <Input
+            type={"date"}
             onChange={(element)=>setBirth(element.target.value)}
+            value={birth}
             ></Input>
              {messageError !== "" ?
                 <LabelMessageError>{messageError}</LabelMessageError>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container, Input, LabelMessageError, Title } from '../../atoms';
 
@@ -17,6 +17,12 @@ export default function Rg() {
 
     }
 
+    useEffect(()=>{
+        let rgLocal = window.localStorage.getItem("rg")
+        if(rgLocal && rgLocal !== "")
+            setRg(rgLocal)
+    },[])
+
     return (
         <Container style={{ background: "#34eb8f" }}>
             <Title>Insira o seu RG</Title>
@@ -24,8 +30,12 @@ export default function Rg() {
                 onChange={(element) => {
                     setRg(element.target.value)
                     setMessageError("")
+                    if(element.target.value === ""){
+                        window.localStorage.removeItem("rg")
+                    }
                 }}
                 type={"Number"}
+                value={rg}
                 required
             ></Input>
             {messageError !== "" ?

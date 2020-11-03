@@ -6,8 +6,15 @@ import { BackButton, Button, Container, Input, LabelMessageError, Title } from '
 
 export default function Mother(){
     const [mothersName, setMothersName] = useState();
-    const {data} = useLocation();
+    
     const [messageError, setMessageError] = useState("");
+
+    useEffect(()=>{
+        let motherLocal = window.localStorage.getItem("mother")
+        if( motherLocal && motherLocal !== "")
+            setMothersName(motherLocal)
+    },[])
+
 
     function checkAndSaveData(e) {
         if (!mothersName || mothersName === "") {
@@ -27,6 +34,7 @@ export default function Mother(){
             <Title>Insira o nome da sua mãe completo</Title>
             <Input
             onChange={(element)=>setMothersName(element.target.value)}
+            value={mothersName}
             ></Input>
             {messageError !== "" ?
                 <LabelMessageError>{messageError}</LabelMessageError>

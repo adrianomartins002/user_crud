@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BackButton, Button, Container, Input, LabelMessageError, Title } from '../../atoms';
 import { BiArrowBack } from 'react-icons/all';
@@ -6,9 +6,15 @@ import { useLocation } from "react-router-dom";
 
 
 export default function Name() {
-    const {data} = useLocation();
     const [name, setName] = useState("");
     const [messageError, setMessageError] = useState("");
+
+    useEffect(()=>{
+        let nameLocal = window.localStorage.getItem("name")
+        if(nameLocal && nameLocal !== "")
+            setName(nameLocal)
+    },[])
+
 
     function checkAndSaveData(e) {
         if (!name || name === "") {
@@ -18,6 +24,8 @@ export default function Name() {
             window.localStorage.setItem("name", name)
         }
     }
+
+
     return (
         <Container style={{ background: "#34eb8f" }}>
             <Link to="/">
@@ -26,6 +34,7 @@ export default function Name() {
             <Title>Insira o seu nome completo</Title>
             <Input
             onChange={(element)=>setName(element.target.value)}
+            value={name}
             ></Input>
             {messageError !== "" ?
                 <LabelMessageError>{messageError}</LabelMessageError>
