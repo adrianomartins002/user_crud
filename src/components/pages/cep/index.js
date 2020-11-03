@@ -19,23 +19,25 @@ export default function Cep() {
 
 
     async function finish() {
-        if (data.rg && data.name && data.birth && data.mothersName) {
+        let data = {
+            rg: window.localStorage.getItem("rg"),
+            name: window.localStorage.getItem("name"),
+            birth: window.localStorage.getItem("birth"),
+            mothersName: window.localStorage.getItem("mother"),
+            ceps: ceps
+        }
+        if (data.rg && data.name && data.birth && data.mothersName && ceps.length >0) {
 
-            let newUser = {
-                rg: data.rg,
-                name: data.name,
-                birth: data.birth,
-                mothersName: data.mothersName
-            }
-
-            const response = await MockUserService.createMockUser(newUser)
+          
+            const response = await MockUserService.createMockUser(data)
             if (response.status === 201) {
                 setSucess(true)
+                window.localStorage.clear()
             } else {
                 setSucess(false)
             }
         } else {
-            setMessageError("É necessário digitar o nome!")
+            setMessageError("Um dos campos está faltando!")
         }
 
     }
@@ -69,15 +71,7 @@ export default function Cep() {
                 </>
                 :
                 <>
-                    <Link to={{
-                        pathname: "/mother",
-                        data: {
-                            rg: data.rg,
-                            name: data.name,
-                            birth: data.birth,
-                            mothersName: data.motersName
-                        }
-                    }}>
+                    <Link to="/mother">
                         <BackButton><BiArrowBack /></BackButton>
                     </Link>
                     <Title>Qual desses ceps você conhece?</Title>

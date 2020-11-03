@@ -9,25 +9,19 @@ export default function Mother(){
     const {data} = useLocation();
     const [messageError, setMessageError] = useState("");
 
-    function checkDataInput(e) {
+    function checkAndSaveData(e) {
         if (!mothersName || mothersName === "") {
             e.preventDefault()
             setMessageError("É necessário digitar o nome da mãe!")
+        }else{
+            window.localStorage.setItem("mother", mothersName)
         }
     }
 
 
     return (
         <Container style={{background:"#34eb8f"}}>
-            <Link to={{
-                    pathname: "/birth",
-                    data: {
-                        rg: data.rg,
-                        name: data.name,
-                        birth: data.birth,
-                        mothersName: mothersName
-                    }
-                }}>
+            <Link to="/birth">
                 <BackButton><BiArrowBack /></BackButton>
             </Link>
             <Title>Insira o nome da sua mãe completo</Title>
@@ -40,16 +34,8 @@ export default function Mother(){
                 null
             }
             <Link
-                onClick={checkDataInput}
-                to={{
-                    pathname: "/cep",
-                    data: {
-                        rg: data.rg,
-                        name: data.name,
-                        birth: data.birth,
-                        mothersName: mothersName
-                    }
-                }}  >
+                onClick={checkAndSaveData}
+                to="/cep"  >
                 <Button>Prosseguir</Button>
             </Link>
         </Container>

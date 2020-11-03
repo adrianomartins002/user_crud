@@ -10,21 +10,17 @@ export default function Name() {
     const [name, setName] = useState("");
     const [messageError, setMessageError] = useState("");
 
-    function checkDataInput(e) {
+    function checkAndSaveData(e) {
         if (!name || name === "") {
             e.preventDefault()
             setMessageError("É necessário digitar o nome!")
+        }else{
+            window.localStorage.setItem("name", name)
         }
     }
     return (
         <Container style={{ background: "#34eb8f" }}>
-            <Link to={{
-                    pathname: "/",
-                    data: {
-                        rg: data.rg,
-                        name: data.name
-                    }
-                }}>
+            <Link to="/">
                 <BackButton><BiArrowBack /></BackButton>
             </Link>
             <Title>Insira o seu nome completo</Title>
@@ -38,14 +34,8 @@ export default function Name() {
             }
             <Link
                 className="birth-link"
-                onClick={checkDataInput}
-                to={{
-                    pathname: "/birth",
-                    data: {
-                        rg: data.rg,
-                        name
-                    }
-                }}  >
+                onClick={checkAndSaveData}
+                to="/birth" >
                 <Button>Prosseguir</Button>
             </Link>
         </Container>

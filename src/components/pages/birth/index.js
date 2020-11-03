@@ -10,23 +10,18 @@ export default function Birth(){
     const {data} = useLocation();
     const [messageError, setMessageError] = useState("");
 
-    function checkDataInput(e) {
+    function checkAndSaveData(e) {
         if (!birth || birth === "") {
             e.preventDefault()
             setMessageError("É necessário digitar a data de nascimento")
+        }else{
+            window.localStorage.setItem("birth", birth)
         }
     }
     
     return (
         <Container style={{background:"#34eb8f"}}>
-            <Link to={{
-                    pathname: "/name",
-                    data: {
-                        rg: data.rg,
-                        name: data.name,
-                        birth: birth,
-                    }
-                }}>
+            <Link to="/name">
                 <BackButton><BiArrowBack /></BackButton>
             </Link>
             <Title>Insira sua data de nascimento</Title>
@@ -39,15 +34,8 @@ export default function Birth(){
                 null
             }
             <Link
-                onClick={checkDataInput}
-                to={{
-                    pathname: "/mother",
-                    data: {
-                        rg: data.rg,
-                        name: data.name,
-                        birth
-                    }
-                }}  >
+                onClick={checkAndSaveData}
+                to="/mother" >
                 <Button>Prosseguir</Button>
             </Link>
         </Container>

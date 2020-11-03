@@ -7,11 +7,14 @@ export default function Rg() {
     const [rg, setRg] = useState("");
     const [messageError, setMessageError] = useState("");
 
-    function checkDataInput(e) {
+    function checkAndSaveData(e) {
         if (!rg || rg === "") {
             e.preventDefault()
             setMessageError("É necessário digitar a info de RG")
+        }else{
+            window.localStorage.setItem("rg", rg)
         }
+
     }
 
     return (
@@ -31,13 +34,8 @@ export default function Rg() {
                 null
             }
             <Link
-                onClick={checkDataInput}
-                to={{
-                    pathname: "/name",
-                    data: {
-                        rg
-                    }
-                }}  >
+                onClick={checkAndSaveData}
+                to="/name"  >
                 <Button type={"submit"} >
                     Prosseguir</Button>
             </Link>
