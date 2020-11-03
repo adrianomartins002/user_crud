@@ -7,6 +7,16 @@ Projeto para criação de um app web onde será possível fazer o cadastro de um
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em 
 um sistema ativo.
 
+## Abordagens para desenvolvimento da solução
+ - Seguindo o enunciado da solicitação da solução de cadastro, desenvolvi o projeto utilizando como base o roteamento
+ das páginas com react router, e salvando os dados no localstorage, para que ficasse salvo no navegador como solicitado, a
+ medida que transitava entre as páginas, verificava os dados salvos e fazia os devidos tratamentos de campos requeridos.
+ - Outras abordagens para a solução: 
+ 	Poderia também ser utilizados alguns dos recursos do próprio react router, como passando pelo
+ useLocation para deixar os dados salvos quando fosse transitar entre as rotas, isso faria com que fosse possível ter todos os dados
+ na ultima etapa antes de finalizar, porém os dados não ficariam salvos no navegador (o exemplo dessa utilização está na branch feat_data_by_link).
+	Outra abordagem seria a utilização de redux, para que a medida que fosse salvando os dados, colocando os mesmos no state da aplicação utilizando o dispatch, e fazendo com que em tempo real os dados fossem replicados para toda a aplicação (assim que tiver um pouco mais de tempo posso implementar essa solução também em outra branch).
+
 ## Pré-requisitos:
 Para execução e desenvolvimento do projeto é necessário, ou que tenha instalado:
 - nodejs
