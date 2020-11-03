@@ -18,6 +18,8 @@ Para execução e desenvolvimento do projeto é necessário, ou que tenha instal
  - JavaScript
  - [ReactJs](https://pt-br.reactjs.org/)
  
+## Executar os testes
+- Para executar os testes basta rodar o comando ``` yarn test ```.
 
 ## Execução o projeto em desenvolvimento
  - Para executar o projeto, basta baixar os pacotes do package.json 

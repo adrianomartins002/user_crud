@@ -9,10 +9,9 @@ import Cep from "./components/pages/cep";
 import Mother from "./components/pages/mother";
 import Name from "./components/pages/name";
 import Rg from "./components/pages/rg";
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
+
+require('dotenv').config()
+
 
 
 export default function App() {
