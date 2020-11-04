@@ -25,9 +25,9 @@ export default function Cep() {
             mothersName: window.localStorage.getItem("mother"),
             ceps: ceps
         }
-        if (data.rg && data.name && data.birth && data.mothersName && ceps.length >0) {
+        if (data.rg && data.name && data.birth && data.mothersName && ceps.length > 0) {
 
-          
+
             const response = await MockUserService.createMockUser(data)
             if (response.status === 201) {
                 setSucess(true)
@@ -70,21 +70,25 @@ export default function Cep() {
                 </>
                 :
                 <>
-                    <Link to="/mother">
-                        <BackButton><BiArrowBack /></BackButton>
-                    </Link>
-                    <Title>Qual desses ceps você conhece?</Title>
+                    <div className="header-back-button">
+                        <Link to="/mother">
+                            <BackButton><BiArrowBack /></BackButton>
+                        </Link>
+                    </div>
+                    <div className="content-input">
+                        <Title>Qual desses ceps você conhece?</Title>
 
-                    {arrayPerguntas.map(cep =>
-                        <label key={cep} style={{ padding: 5, fontSize: "24px", color: "#FFF" }}>
-                            <CheckBox key={cep} onChange={event => handleChange(event, cep)}></CheckBox> {cep}
-                        </label>)}
-                    {messageError !== "" ?
-                        <LabelMessageError>{messageError}</LabelMessageError>
-                        :
-                        null
-                    }
-                    <Button type={"button"} onClick={finish}>Finalizar</Button>
+                        {arrayPerguntas.map(cep =>
+                            <label key={cep} style={{ padding: 5, fontSize: "24px", color: "#FFF" }}>
+                                <CheckBox key={cep} onChange={event => handleChange(event, cep)}></CheckBox> {cep}
+                            </label>)}
+                        {messageError !== "" ?
+                            <LabelMessageError>{messageError}</LabelMessageError>
+                            :
+                            null
+                        }
+                        <Button type={"button"} onClick={finish}>Finalizar</Button>
+                    </div>
                 </>
             }
 

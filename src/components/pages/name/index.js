@@ -27,9 +27,12 @@ export default function Name() {
 
     return (
         <Container style={{ background: "#34eb8f" }}>
+            <div className="header-back-button">
             <Link to="/">
                 <BackButton><BiArrowBack /></BackButton>
             </Link>
+            </div>
+            <div className="content-input">
             <Title>Insira o seu nome completo</Title>
             <Input
             onChange={(element)=>{
@@ -51,6 +54,7 @@ export default function Name() {
                 to="/birth" >
                 <Button>Prosseguir</Button>
             </Link>
+            </div>
         </Container>
     );
 }
