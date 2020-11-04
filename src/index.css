@@ -34,3 +34,12 @@ code {
   flex-direction: column;
   align-items: center;
 }
+
+.users-list{
+  height: 300px;
+  overflow: auto;
+}
+
+table, th, td{
+  border: 1px solid black;
+}

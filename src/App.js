@@ -9,6 +9,7 @@ import Cep from "./components/pages/cep";
 import Mother from "./components/pages/mother";
 import Name from "./components/pages/name";
 import Rg from "./components/pages/rg";
+import UsersList from "./components/pages/users";
 
 require('dotenv').config()
 
@@ -36,6 +37,9 @@ export default function App() {
         </Route>
         <Route exact path="/cep">
           <Cep></Cep>
+        </Route>
+        <Route exact path="/users-list">
+          <UsersList></UsersList>
         </Route>
       </Switch>
 

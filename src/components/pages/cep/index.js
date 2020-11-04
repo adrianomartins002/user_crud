@@ -69,7 +69,10 @@ export default function Cep() {
                     <Link to={{
                         pathname: "/"
                     }}>
-                        <BackButton><BiArrowBack /></BackButton>
+                        <Button type={"button"} >Novo Cadastro</Button>
+                    </Link>
+                    <Link to="/users-list" style={{ textDecoration: "none", color: "#FFF"}}>
+                        Listar cadastrados        
                     </Link>
                 </>
                 :

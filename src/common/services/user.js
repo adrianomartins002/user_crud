@@ -22,5 +22,22 @@ export const MockUserService = {
         }
     },
 
+    async searchUsers() {
+        try {
+
+            const searchUsers = api.searchUsers()
+            const response = await axios.get(searchUsers.url)
+
+            return {
+                data: response.data,
+                status: response.status
+            };
+        } catch (err) {
+            console.log("houve um erro:", err.message)
+            throw new Error(err.message);
+            
+        }
+    },
+
 }
 
