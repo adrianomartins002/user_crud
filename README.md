@@ -20,7 +20,6 @@ um sistema ativo.
 ## Pré-requisitos:
 Para execução e desenvolvimento do projeto é necessário, ou que tenha instalado:
 - nodejs
-- react-native
 - yarn ou npm
 
 
@@ -57,8 +56,6 @@ Para execução e desenvolvimento do projeto é necessário, ou que tenha instal
 			-services
 		-components
 			-atoms
-			-molecules
-			-organisms
 			-pages
 	
 
