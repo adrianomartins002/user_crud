@@ -1,5 +1,5 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { BrowserRouter, Link, MemoryRouter, Router} from 'react-router-dom';
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter} from 'react-router-dom';
 import React from "react";
 import Cep from '../../components/pages/cep/';
 

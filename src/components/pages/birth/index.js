@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { BackButton, Button, Container, Input, LabelMessageError, Title } from '../../atoms';
 
 export default function Birth() {
-    const [birth, setBirth] = useState();
+    const [birth, setBirth] = useState("");
 
     const [messageError, setMessageError] = useState("");
 

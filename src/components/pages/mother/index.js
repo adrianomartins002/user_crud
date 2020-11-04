@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { BackButton, Button, Container, Input, LabelMessageError, Title } from '../../atoms';
 
 export default function Mother() {
-    const [mothersName, setMothersName] = useState();
+    const [mothersName, setMothersName] = useState("");
 
     const [messageError, setMessageError] = useState("");
 
