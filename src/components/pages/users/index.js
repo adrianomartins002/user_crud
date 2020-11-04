@@ -10,7 +10,7 @@ export default function UsersList() {
 
     async function searchUsers() {
         const { data } = await MockUserService.searchUsers();
-        console.log("üsuarios:", users)
+        
         if (data && data.length > 0)
             setUsers(data);
     }
@@ -30,21 +30,22 @@ export default function UsersList() {
                 {users && users.length > 0 ?
                     <div className="users-list">
                         <table>
+                            <tbody>
                             <tr>
                                 <th>Nomes</th>
                                 <th>RG</th>
-                                <th>Mãe</th>
+                                
 
                             </tr>
                             
                                 {users.map(user => (
-                            <tr>        
-                                    <td>{user.name}</td>
-                                    <td>{user.rg}</td>
-                                    <td>{user.mothersName}</td>
+                            <tr key={user.id}>        
+                                    <td key={user.id}>{user.name}</td>
+                                    <td key={user.createdAt}>{user.rg}</td>
+                                    
                             </tr>
                                 ))}
-                            
+                         </tbody>   
                         </table>
 
 
