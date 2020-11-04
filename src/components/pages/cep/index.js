@@ -27,14 +27,18 @@ export default function Cep() {
         }
         if (data.rg && data.name && data.birth && data.mothersName && ceps.length > 0) {
 
-
-            const response = await MockUserService.createMockUser(data)
-            if (response.status === 201) {
-                setSucess(true)
-                window.localStorage.clear()
-            } else {
-                setSucess(false)
-            }
+            try{
+                const response = await MockUserService.createMockUser(data)
+                if (response.status === 201) {
+                    setSucess(true)
+                    window.localStorage.clear()
+                } else {
+                    setSucess(false)
+                }
+            }catch(err){
+                setMessageError(`Houve um problema :${err.message}`)
+            }   
+            
         } else {
             setMessageError("Um dos campos está faltando!")
         }

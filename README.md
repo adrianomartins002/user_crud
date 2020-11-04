@@ -36,7 +36,7 @@ Para execução e desenvolvimento do projeto é necessário, ou que tenha instal
  utilizando o comando ``` yarn ou npm install ``` e logo após o download terminar, utilizar o comando ``` yarn start ```.
  - dentro do arquivo .env já existe uma base url apontando para meu cadastro da mockapi, mas é possível trocar pelo seu caso queira, ou
  mesmo startar o projeto com o comando ``` REACT_APP_PUBLIC_URL=https://5f9cb5b56dc8300016d2d8f3.mockapi.io && yarn start ``` onde no lugar da public url, trocará pela sua.
-
+- É possível ver todos os dados salvos na url https://5f9cb5b56dc8300016d2d8f3.mockapi.io/user-crud/v1/users
 
 ## Executando o projeto com docker
  - Para executar o projeto em um container docker, basta executar os seguites comandos:
